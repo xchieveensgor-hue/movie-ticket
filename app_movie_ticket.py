@@ -1,6 +1,5 @@
 """
 Movie Ticket Booking System
-DFK50083: Python Programming - Practical Work 3
 """
 
 import streamlit as st
@@ -9,12 +8,11 @@ def main():
     # Page configuration
     st.set_page_config(
         page_title="Movie Ticket Booking System",
-        page_icon="🎬",
         layout="centered"
     )
     
     # Title and header
-    st.title("🎬 Movie Ticket Booking System")
+    st.title("Movie Ticket Booking System")
     st.markdown("---")
     
     # Initialize session state for booking confirmation
@@ -22,7 +20,7 @@ def main():
         st.session_state.booking_made = False
     
     # Create input fields using Streamlit widgets
-    st.subheader("📝 Booking Details")
+    st.subheader(" Booking Details")
     
     # Customer Name input with text_input
     customer_name = st.text_input("Customer Name", placeholder="Enter your full name")
@@ -48,17 +46,17 @@ def main():
     st.markdown("---")
     
     # Book Ticket button
-    if st.button("🎟️ Book Ticket", type="primary"):
+    if st.button("Book Ticket", type="primary"):
         # Exception handling block
         try:
             # Validate customer name (not empty)
             if not customer_name or customer_name.strip() == "":
-                st.error("❌ Error: Customer name cannot be empty! Please enter your name.")
+                st.error("Error: Customer name cannot be empty! Please enter your name.")
             else:
                 # Display booking information
-                st.success("✅ Ticket booked successfully!")
+                st.success("Ticket booked successfully!")
                 
-                st.subheader("📋 Booking Information")
+                st.subheader("Booking Information")
                 
                 # Create a nice formatted display
                 col1, col2 = st.columns(2)
@@ -76,19 +74,19 @@ def main():
                     st.write(f"{seat_type}")
                 
                 st.markdown("---")
-                st.info("🎉 Thank you for booking with us! Enjoy your movie!")
+                st.info("Thank you for booking with us! Enjoy your movie!")
                 
                 # Mark booking as made
                 st.session_state.booking_made = True
                 
         except Exception as e:
             # Handle unexpected errors
-            st.error(f"❌ An unexpected error occurred: {str(e)}")
+            st.error(f" An unexpected error occurred: {str(e)}")
             st.info("Please try again or contact support if the problem persists.")
     
     # Reset button to clear booking
     if st.session_state.booking_made:
-        if st.button("🔄 New Booking"):
+        if st.button(" New Booking"):
             st.session_state.booking_made = False
             st.rerun()
     
